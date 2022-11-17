@@ -1,0 +1,90 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-view1">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      input[type=text],
+      [type=email],
+      [type=password],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type=submit] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+    </style>
+
+    <div class="card">
+      <div class="circle">1</div>
+      <h1>Registrasi</h1>
+      <form>
+        <label>Nama Lengkap</label>
+        <input type="text" name="namalengkap" placeholder="Nama Lengkap" required>
+        <br>
+        <label>Email</label>
+        <input type="Email" name="Email" Placeholder="Email" required>
+        <br>
+        <label>Pasword</label>
+        <input type="Password" name="Password" Placeholder="Password" required>
+        <br>
+        <label>Jenis Kelamin</label>
+        <select id="jkel" name="jkel">
+          <option value="laki">Laki-Laki</option>
+          <option value="Perempuan">Perempuan</option>
+          <option value="lain">Lainnya</option>
+        </select>
+        <br>
+        <label>Alamat</label>
+        <textarea name="alamat" Placeholder="write something.." required></textarea>
+
+        <input type="submit" value="submit">
+
+      </form>
+    </div>
+  </template>
+
+  <script>
+    class MyView1 extends Polymer.Element {
+      static get is() { return 'my-view1'; }
+    }
+
+    window.customElements.define(MyView1.is, MyView1);
+  </script>
+</dom-module>

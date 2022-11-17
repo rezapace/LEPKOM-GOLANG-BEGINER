@@ -1,0 +1,66 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="login-page">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+
+    <div class="card">
+      <div class="circle">1</div>
+      <h1>Login</h1>
+      <input type="text" name="username" value="{{username}}" on-input="handleChange" placeholder="username">
+      <input type="password" name="password" value="{{password}}" on-input="handleChange" placeholder="password">
+      <button on-click="handleSubmit">Submit</button>
+    </div>
+  </template>
+
+  <script>
+    class LoginPage extends Polymer.Element {
+      static get is() { return 'login-page'; }
+      static get properties() {
+        return {
+          username: String,
+          password: String,
+          isAdmin: {
+            type: Boolean,
+            notify: true,
+          },
+        };
+      }
+
+      handleChange(e) {
+        this[e.target.name] = e.target.value;
+      }
+
+      handleSubmit(e) {
+        if(this.username === 'reza' && this.password === 'reza') {
+          this.isAdmin = true;
+          window.history.pushState({}, null, '/message-page');
+          window.dispatchEvent(new CustomEvent('location-changed'));
+          return;
+        }
+
+        this.isAdmin = false;
+        alert('Mohon Login sebagai Admin');
+      }
+    }
+
+    window.customElements.define(LoginPage.is, LoginPage);
+  </script>
+</dom-module>
