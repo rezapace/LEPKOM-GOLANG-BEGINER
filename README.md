@@ -1,7 +1,11 @@
 # LEPKOM-GOLANG-BEGINNER
 
 # LEPKOM BEGINNER
- 
+
+[![kumal][kumal]][kumal]
+
+[kumal]: https://custom-icon-badges.demolab.com/badge/kumal-.com-blue.svg?logo=kumal
+
 Lab IT Practicum - GOLANG FOR BEGINNER - TINGKAT 2
 
 
